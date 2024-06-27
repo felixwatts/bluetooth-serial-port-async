@@ -1,13 +1,12 @@
-use async_std::io::prelude::*;
+#![cfg(feature="tokio")]
+
 use bluetooth_serial_port_async::{BtProtocol, BtSocket};
-use std::time;
+use tokio::io::AsyncWriteExt;
+use tokio::io::AsyncReadExt;
 
-fn main() {
-    async_std::task::block_on(run());
-}
-
-async fn run() {
-    let devices = bluetooth_serial_port_async::scan_devices(time::Duration::from_secs(20)).unwrap();
+#[tokio::main]
+async fn main() {
+    let devices = bluetooth_serial_port_async::scan_devices(std::time::Duration::from_secs(20)).unwrap();
     if devices.len() == 0 {
         panic!("No devices found");
     }
