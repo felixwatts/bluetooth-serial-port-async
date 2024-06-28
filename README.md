@@ -6,6 +6,20 @@ This library only works on Linux/BlueZ. You can find it on [crates.io](https://c
 
 You can use async_std or tokio to read and write async.
 
+## Dependencies
+
+The build machine requires `libbluetooth-dev`. On Ubuntu/Debian you can install it with:
+
+```
+apt install libbluetooth-dev
+```
+
+The execution machine requires `libbluetooth`. On Ubuntu/Debian you can install it with:
+
+```
+apt install libbluetooth
+```
+
 ## Cargo.toml
 
 For async_std:
