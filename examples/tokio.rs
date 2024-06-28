@@ -1,8 +1,8 @@
-#![cfg(feature="tokio")]
+#[cfg(any(feature = "async_std", not(feature = "tokio")))]
+compile_error!("this example must be compiled with `--features tokio --no-default--features`");
 
 use bluetooth_serial_port_async::{BtProtocol, BtSocket};
-use tokio::io::AsyncWriteExt;
-use tokio::io::AsyncReadExt;
+use tokio::io::{AsyncReadExt, AsyncWriteExt};
 
 #[tokio::main]
 async fn main() {

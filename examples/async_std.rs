@@ -1,4 +1,5 @@
-#![cfg(feature="async_std")]
+#[cfg(any(feature = "tokio", not(feature = "async_std")))]
+compile_error!("this example must be compiled with `--features async_std` or default features");
 
 use async_std::io::prelude::*;
 use bluetooth_serial_port_async::{BtProtocol, BtSocket};
