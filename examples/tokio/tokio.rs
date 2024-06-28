@@ -24,9 +24,9 @@ async fn main() {
     // create and connect the RFCOMM socket
     let mut socket = BtSocket::new(BtProtocol::RFCOMM).unwrap();
     socket.connect(device.addr).unwrap();
-
-    // BtSocket implements the `Read` and `Write` traits (they're blocking)
+    
     let mut buffer = [0; 10];
+    // BtSocket::get_stream returns an async stream
     let mut stream = socket.get_stream();
     let num_bytes_read = stream.read(&mut buffer[..]).await.unwrap();
     let num_bytes_written = stream.write(&buffer[0..num_bytes_read]).await.unwrap();
