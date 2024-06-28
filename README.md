@@ -33,7 +33,7 @@ For tokio
 
 ```toml
 [dependencies]
-bluetooth-serial-port-async = { version = "0.6.3", features = "tokio", default_features = false }
+bluetooth-serial-port-async = { version = "0.6.3", features = "tokio", default-features = false }
 ```
 
 ## Important functions
