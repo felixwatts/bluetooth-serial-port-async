@@ -1,3 +1,5 @@
+#![cfg(feature="tokio")]
+
 #[cfg(any(feature = "async_std", not(feature = "tokio")))]
 compile_error!("this example must be compiled with `--features tokio --no-default--features`");
 
