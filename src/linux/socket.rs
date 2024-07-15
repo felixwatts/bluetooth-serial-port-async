@@ -106,8 +106,7 @@ impl BtSocket {
 
     #[cfg(feature="tokio")]
     pub fn get_stream(&self) -> UnixStream {
-        let stream: UnixStream = UnixStream::from_std(self.get_stream_std()).unwrap();
-        stream
+        UnixStream::from_std(self.get_stream_std()).unwrap()
     }
 
     #[cfg(feature="async_std")]
